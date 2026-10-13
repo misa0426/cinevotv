@@ -123,7 +123,19 @@
     placeholder="Buscar películas o series..."
   >
 </div>
+<div style="display:flex; gap:10px; margin:20px 0;">
+  <button onclick="document.getElementById('peliculas').style.display='block'; document.getElementById('series').style.display='block';">
+    Todo
+  </button>
 
+  <button onclick="document.getElementById('peliculas').style.display='block'; document.getElementById('series').style.display='none';">
+    Movies
+  </button>
+
+  <button onclick="document.getElementById('peliculas').style.display='none'; document.getElementById('series').style.display='block';">
+    Series
+  </button>
+</div>
 <section id="peliculas">
   <h2>Películas</h2>
 
