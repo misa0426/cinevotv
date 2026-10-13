@@ -128,10 +128,23 @@
   <h2>Películas</h2>
 
   <div class="catalog">
-    <div class="card">movie 1</div>
-    <div class="card">Película 2</div>
-    <div class="card">Película 3</div>
-    <div class="card">Película 4</div>
+   <script>
+  const movies = [
+    "Movie 1",
+    "Película 2",
+    "Película 3",
+    "Película 4"
+  ];
+
+  const movieCatalog = document.currentScript.parentElement;
+
+  movies.forEach(title => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.textContent = title;
+    movieCatalog.insertBefore(card, document.currentScript);
+  });
+</script>
   </div>
 </section>
 
