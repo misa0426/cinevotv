@@ -1,1 +1,154 @@
-prueba
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CinevoTV</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 6%;
+      background: #111118;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #e50914;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    .hero {
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 6%;
+      background: linear-gradient(135deg, #1b1b2b, #08080c);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #c9c9d0;
+      font-size: 20px;
+      max-width: 600px;
+      margin-bottom: 25px;
+    }
+
+    .search {
+      width: 100%;
+      max-width: 500px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 35px 6%;
+    }
+
+    section h2 {
+      margin-bottom: 20px;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 240px;
+      border-radius: 12px;
+      background: #1b1b24;
+      padding: 20px;
+      display: flex;
+      align-items: flex-end;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">CinevoTV</div>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#peliculas">Películas</a>
+    <a href="#series">Series</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Bienvenido a CinevoTV</h1>
+  <p>Descubre películas y series desde una plataforma sencilla, moderna y rápida.</p>
+
+  <input
+    class="search"
+    type="search"
+    placeholder="Buscar películas o series..."
+  >
+</div>
+
+<section id="peliculas">
+  <h2>Películas</h2>
+
+  <div class="catalog">
+    <div class="card">Película 1</div>
+    <div class="card">Película 2</div>
+    <div class="card">Película 3</div>
+    <div class="card">Película 4</div>
+  </div>
+</section>
+
+<section id="series">
+  <h2>Series</h2>
+
+  <div class="catalog">
+    <div class="card">Serie 1</div>
+    <div class="card">Serie 2</div>
+    <div class="card">Serie 3</div>
+    <div class="card">Serie 4</div>
+  </div>
+</section>
+
+<footer>
+  CinevoTV — Prototipo
+</footer>
+
+</body>
+</html>
