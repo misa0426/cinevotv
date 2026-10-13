@@ -214,10 +214,19 @@
     card.style.cursor = 'pointer';
 
     card.addEventListener('click', () => {
-      document.getElementById('detailsTitle').textContent = card.textContent;
-      document.getElementById('details').style.display = 'flex';
-      document.getElementById('playerBox').style.display = 'none';
-    });
+  const isSeries = card.closest('section')?.id === 'series';
+
+  document.getElementById('detailsTitle').textContent = card.textContent;
+
+  document.getElementById('detailsType').textContent =
+    isSeries ? 'Tipo: Series' : 'Tipo: Movie';
+
+  document.getElementById('detailsDescription').textContent =
+    isSeries ? 'Descripción de la serie.' : 'Descripción de la película.';
+
+  document.getElementById('details').style.display = 'flex';
+  document.getElementById('playerBox').style.display = 'none';
+});
   });
 
   function closeDetails() {
