@@ -142,21 +142,20 @@
   <div class="catalog">
    <script>
   const movies = [
-  const movies = [
-  "Movie 1",
-  "Movie 2",
-  "Movie 3",
-  "Movie 4"
-];
+    "Movie 1",
+    "Movie 2",
+    "Movie 3",
+    "Movie 4"
+  ];
 
-const movieCatalog = document.currentScript.parentElement;
+  const movieCatalog = document.currentScript.parentElement;
 
-movies.forEach(title => {
-  const card = document.createElement("div");
-  card.className = "card";
-  card.textContent = title;
-  movieCatalog.insertBefore(card, document.currentScript);
-});
+  movies.forEach(title => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.textContent = title;
+    movieCatalog.insertBefore(card, document.currentScript);
+  });
 </script>
   </div>
 </section>
@@ -257,4 +256,3 @@ movies.forEach(title => {
 </script>
 </body>
 </html>
-
