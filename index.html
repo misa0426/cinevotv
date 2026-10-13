@@ -191,6 +191,21 @@
     document.getElementById('moviePlayer').play();
   }
 </script>
+<script>
+  const searchInput = document.querySelector('.search, input[type="search"]');
+  const searchCards = document.querySelectorAll('.card');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const text = searchInput.value.toLowerCase().trim();
+
+      searchCards.forEach(card => {
+        const title = card.textContent.toLowerCase();
+        card.style.display = title.includes(text) ? '' : 'none';
+      });
+    });
+  }
+</script>
 </body>
 </html>
 
