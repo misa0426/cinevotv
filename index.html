@@ -149,7 +149,48 @@
 <footer>
   CinevoTV — Prototipo
 </footer>
+<div id="details" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#181818; padding:30px; border-radius:14px; width:min(700px,90%);">
+    <button onclick="closeDetails()" style="float:right; font-size:22px; background:none; color:white; border:0; cursor:pointer;">✕</button>
 
+    <h2 id="detailsTitle">Movie</h2>
+    <p>This is the CinevoTV title information page.</p>
+
+    <button onclick="playMovie()" style="background:#e50914; color:white; border:0; padding:12px 24px; border-radius:6px; font-size:18px; cursor:pointer;">
+      ▶ Play
+    </button>
+
+    <div id="playerBox" style="display:none; margin-top:20px;">
+      <video id="moviePlayer" controls style="width:100%; border-radius:10px;">
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    card.style.cursor = 'pointer';
+
+    card.addEventListener('click', () => {
+      document.getElementById('detailsTitle').textContent = card.textContent;
+      document.getElementById('details').style.display = 'flex';
+      document.getElementById('playerBox').style.display = 'none';
+    });
+  });
+
+  function closeDetails() {
+    document.getElementById('details').style.display = 'none';
+    document.getElementById('moviePlayer').pause();
+  }
+
+  function playMovie() {
+    document.getElementById('playerBox').style.display = 'block';
+    document.getElementById('moviePlayer').play();
+  }
+</script>
 </body>
 </html>
 
