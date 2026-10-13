@@ -154,6 +154,14 @@
     const card = document.createElement("div");
     card.className = "card";
     card.textContent = title;
+    if (title === "Movie 1") {
+  card.style.backgroundImage =
+    'url("https://placehold.co/600x900/1b1b2b/ffffff?text=Movie+1")';
+  card.style.backgroundSize = "cover";
+  card.style.backgroundPosition = "center";
+  card.style.color = "white";
+  card.style.textShadow = "0 2px 6px black";
+}
     movieCatalog.insertBefore(card, document.currentScript);
   });
 </script>
