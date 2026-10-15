@@ -99,8 +99,25 @@
       color: #888;
     }
   </style>
-</head>
+<style>
+/* Efecto profesional CinevoTV */
+.movie-card,
+.series-card,
+.card {
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+  cursor: pointer;
+}
 
+.movie-card:hover,
+.series-card:hover,
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(229, 9, 20, 0.4);
+}
+</style>
+   
+</head>
 <body>
 
 <header>
@@ -331,22 +348,25 @@ document.getElementById("moviePlayer").load();
     });
   }
 </script>
-</body>
-  <style>
-/* Efecto profesional CinevoTV */
-.movie-card,
-.series-card,
-.card {
-  transition: transform 0.3s ease,
-              box-shadow 0.3s ease;
-  cursor: pointer;
-}
+   <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-.movie-card:hover,
-.series-card:hover,
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(229, 9, 20, 0.4);
-}
-</style>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDQascHh2rzhDDpWdKRX-xthKtA6oz0p6U",
+    authDomain: "cinevotv-a3378.firebaseapp.com",
+    projectId: "cinevotv-a3378",
+    storageBucket: "cinevotv-a3378.firebasestorage.app",
+    messagingSenderId: "495427023735",
+    appId: "1:495427023735:web:89eb3588d847ba88862772"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+</body>
+ 
 </html>
