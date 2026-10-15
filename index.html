@@ -106,11 +106,11 @@
 <header>
   <div class="logo">CinevoTV</div>
 <div class="auth-buttons" style="display:flex; gap:10px;">
-  <button type="button" style="background:#333; color:white; border:1px solid #777; padding:10px 15px; border-radius:6px; cursor:pointer;">
+  <button type="button" onclick="document.getElementById('loginPanel').style.display='block'" style="background:#333; color:white; border:1px solid #777; padding:10px 15px; border-radius:6px; cursor:pointer;">
     Iniciar sesión
   </button>
 
-  <button type="button" style="background:#e50914; color:white; border:none; padding:10px 15px; border-radius:6px; cursor:pointer;">
+  <button type="button" onclick="document.getElementById('registerPanel').style.display='block'" style="background:#e50914; color:white; border:none; padding:10px 15px; border-radius:6px; cursor:pointer;">
     Registrarse
   </button>
 </div>
@@ -120,7 +120,46 @@
     <a href="#series">Series</a>
   </nav>
 </header>
+<!-- FORMULARIO DE INICIO DE SESIÓN -->
+<div id="loginPanel" style="display:none; background:#222; padding:25px; margin:20px auto; max-width:400px; border-radius:10px;">
+  <h2>Iniciar sesión</h2>
 
+  <input type="email" placeholder="Correo electrónico"
+    style="width:100%; padding:12px; margin:10px 0;">
+
+  <input type="password" placeholder="Contraseña"
+    style="width:100%; padding:12px; margin:10px 0;">
+
+  <button type="button" style="padding:12px; background:#e50914; color:white; border:none;">
+    Entrar
+  </button>
+
+  <button type="button" onclick="document.getElementById('loginPanel').style.display='none'">
+    Cerrar
+  </button>
+</div>
+
+<!-- FORMULARIO DE REGISTRO -->
+<div id="registerPanel" style="display:none; background:#222; padding:25px; margin:20px auto; max-width:400px; border-radius:10px;">
+  <h2>Crear cuenta</h2>
+
+  <input type="text" placeholder="Nombre"
+    style="width:100%; padding:12px; margin:10px 0;">
+
+  <input type="email" placeholder="Correo electrónico"
+    style="width:100%; padding:12px; margin:10px 0;">
+
+  <input type="password" placeholder="Contraseña"
+    style="width:100%; padding:12px; margin:10px 0;">
+
+  <button type="button" style="padding:12px; background:#e50914; color:white; border:none;">
+    Registrarse
+  </button>
+
+  <button type="button" onclick="document.getElementById('registerPanel').style.display='none'">
+    Cerrar
+  </button>
+</div>
 <div class="hero">
   <h1>Bienvenido a CinevoTV</h1>
   <p>Descubre películas y series desde una plataforma sencilla, moderna y rápida.</p>
