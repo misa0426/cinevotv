@@ -209,7 +209,7 @@
 
     <div id="playerBox" style="display:none; margin-top:20px;">
       <video id="moviePlayer" controls style="width:100%; border-radius:10px;">
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+       <source id="videoSource" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -223,7 +223,18 @@
 
     card.addEventListener('click', () => {
   const isSeries = card.closest('section')?.id === 'series';
+const movieTitle = card.textContent.trim();
 
+const movieVideos = {
+  "Movie 1": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  "Movie 2": "",
+  "Movie 3": "",
+  "Movie 4": ""
+};
+
+const videoSource = document.getElementById("videoSource");
+videoSource.src = movieVideos[movieTitle] || "";
+document.getElementById("moviePlayer").load();
   document.getElementById('detailsTitle').textContent = card.textContent;
 
   document.getElementById('detailsType').textContent =
