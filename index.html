@@ -351,6 +351,7 @@ document.getElementById("moviePlayer").load();
    <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -366,6 +367,29 @@ document.getElementById("moviePlayer").load();
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+     const auth = getAuth(app);
+     document.getElementById("btnRegistro").addEventListener("click", async () => {
+  const email = document.getElementById("registroEmail").value.trim();
+  const password = document.getElementById("registroPassword").value;
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("¡Cuenta creada correctamente en CinevoTV!");
+  } catch (error) {
+    alert("Error al registrarse: " + error.message);
+  }
+});
+     document.getElementById("btnLogin").addEventListener("click", async () => {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    alert("¡Has iniciado sesión correctamente en CinevoTV!");
+  } catch (error) {
+    alert("Error al iniciar sesión: " + error.message);
+  }
+});
 </script>
   <!-- REGISTRO E INICIO DE SESIÓN CINEVOTV -->
 <section id="usuarios-cinevotv">
