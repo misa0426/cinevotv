@@ -231,9 +231,14 @@ const movieVideos = {
   "Movie 3": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   "Movie 4": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
 };
-
+const seriesVideos = {
+  "Series 1": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+  "Series 2": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+  "Series 3": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+  "Series 4": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+};
 const videoSource = document.getElementById("videoSource");
-videoSource.src = movieVideos[movieTitle] || "";
+videoSource.src = (isSeries ? seriesVideos[movieTitle] : movieVideos[movieTitle]) || "";
 document.getElementById("moviePlayer").load();
   document.getElementById('detailsTitle').textContent = card.textContent;
 
