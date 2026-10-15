@@ -243,9 +243,15 @@
   }
 
   function playMovie() {
-    document.getElementById('playerBox').style.display = 'block';
-    document.getElementById('moviePlayer').play();
-  }
+  const player = document.getElementById("moviePlayer");
+  const playerBox = document.getElementById("playerBox");
+
+  playerBox.style.display = "block";
+
+  player.play().catch(error => {
+    console.log("No se pudo reproducir el video:", error);
+  });
+}
 </script>
 <script>
   const searchInput = document.querySelector('.search, input[type="search"]');
