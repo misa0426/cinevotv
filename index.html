@@ -141,15 +141,35 @@
 <div id="loginPanel" style="display:none; background:#222; padding:25px; margin:20px auto; max-width:400px; border-radius:10px;">
   <h2>Iniciar sesión</h2>
 
-  <input type="email" placeholder="Correo electrónico"
-    style="width:100%; padding:12px; margin:10px 0;">
+ <input
+  type="email"
+  id="loginEmailSuperior"
+  placeholder="Correo electrónico"
+  style="width:100%; padding:12px; margin:10px 0;"
+>
 
-  <input type="password" placeholder="Contraseña"
-    style="width:100%; padding:12px; margin:10px 0;">
+<input
+  type="password"
+  id="loginPasswordSuperior"
+  placeholder="Contraseña"
+  style="width:100%; padding:12px; margin:10px 0;"
+>
 
-  <button type="button" style="padding:12px; background:#e50914; color:white; border:none;">
-    Entrar
-  </button>
+<button
+  type="button"
+  onclick="
+    document.getElementById('loginEmail').value =
+      document.getElementById('loginEmailSuperior').value;
+
+    document.getElementById('loginPassword').value =
+      document.getElementById('loginPasswordSuperior').value;
+
+    document.getElementById('btnLogin').click();
+  "
+  style="padding:12px; background:#e50914; color:white; border:none; cursor:pointer;"
+>
+  Entrar
+</button>
 
   <button type="button" onclick="document.getElementById('loginPanel').style.display='none'">
     Cerrar
