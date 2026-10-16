@@ -394,6 +394,36 @@ document.getElementById("moviePlayer").load();
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
      const auth = getAuth(app);
+     onAuthStateChanged(auth, (user) => {
+  const seccion = document.getElementById("usuarios-cinevotv");
+
+  if (!seccion) return;
+
+  let estado = document.getElementById("estadoSesion");
+
+  if (!estado) {
+    estado = document.createElement("div");
+    estado.id = "estadoSesion";
+    seccion.prepend(estado);
+  }
+
+  if (user) {
+    estado.innerHTML = `
+      <p>Bienvenido a CinevoTV, ${user.email}</p>
+      <button id="cerrarSesion" type="button">Cerrar sesión</button>
+    `;
+
+    document.getElementById("cerrarSesion").onclick = async () => {
+      try {
+        await signOut(auth);
+      } catch (error) {
+        alert("Error al cerrar sesión: " + error.message);
+      }
+    };
+  } else {
+    estado.innerHTML = "<p>No has iniciado sesión.</p>";
+  }
+});
      document.getElementById("btnRegistro").addEventListener("click", async () => {
   const email = document.getElementById("registroEmail").value.trim();
   const password = document.getElementById("registroPassword").value;
