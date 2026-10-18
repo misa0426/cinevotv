@@ -493,7 +493,25 @@ document.getElementById("moviePlayer").load();
     return false;
   }
 };
-     onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    try {
+      const referencia = doc(db, "usuarios", user.uid);
+      const documento = await getDoc(referencia);
+
+      const favoritos = documento.exists()
+        ? (documento.data().favoritos || [])
+        : [];
+
+      const lista = document.getElementById("favoritos");
+
+      if (lista) {
+        lista.textContent = favoritos.join(" 💗 ");
+      }
+    } catch (error) {
+      console.error("Error al cargar favoritos:", error);
+    }
+  }
   const seccion = document.getElementById("usuarios-cinevotv");
 
   if (!seccion) return;
