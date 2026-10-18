@@ -246,7 +246,38 @@
   card.style.color = "white";
   card.style.textShadow = "0 2px 6px black";
 }
-    movieCatalog.insertBefore(card, document.currentScript);
+   // BOTÓN DE FAVORITOS CINEVOTV
+const favoritoBtn = document.createElement("button");
+favoritoBtn.textContent = "❤️ Guardar";
+favoritoBtn.type = "button";
+
+favoritoBtn.onclick = (event) => {
+  event.stopPropagation();
+
+  const favoritos = JSON.parse(
+    localStorage.getItem("cinevoFavoritos") || "[]"
+  );
+
+  if (!favoritos.includes(title)) {
+    favoritos.push(title);
+    localStorage.setItem(
+      "cinevoFavoritos",
+      JSON.stringify(favoritos)
+    );
+  }
+
+  const lista = document.getElementById("favoritos");
+
+  if (lista) {
+    lista.textContent = favoritos.join(" ❤️ ");
+  }
+
+  favoritoBtn.textContent = "❤️ Guardado";
+};
+
+card.appendChild(favoritoBtn);
+// FIN BOTÓN DE FAVORITOS
+  movieCatalog.insertBefore(card, document.currentScript);
   });
 </script>
   </div>
