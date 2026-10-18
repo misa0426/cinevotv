@@ -456,6 +456,36 @@ document.getElementById("moviePlayer").load();
   const app = initializeApp(firebaseConfig);
      const auth = getAuth(app);
      const db = getFirestore(app);
+
+     window.guardarFavoritoFirebase = async (titulo) => {
+  const usuario = auth.currentUser;
+
+  if (!usuario) {
+    alert("Inicia sesión para guardar tus favoritos.");
+    return false;
+  }
+
+  try {
+    const referencia = doc(db, "usuarios", usuario.uid);
+    const documento = await getDoc(referencia);
+
+    const favoritos = documento.exists()
+      ? (documento.data().favoritos || [])
+      : [];
+
+    if (!favoritos.includes(titulo)) {
+      favoritos.push(titulo);
+    }
+
+    await setDoc(referencia, { favoritos }, { merge: true });
+
+    return true;
+  } catch (error) {
+    console.error("Error al guardar favorito:", error);
+    alert("No se pudo guardar el favorito.");
+    return false;
+  }
+};
      onAuthStateChanged(auth, (user) => {
   const seccion = document.getElementById("usuarios-cinevotv");
 
