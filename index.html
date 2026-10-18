@@ -438,6 +438,7 @@ document.getElementById("moviePlayer").load();
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+     import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -454,6 +455,7 @@ document.getElementById("moviePlayer").load();
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
      const auth = getAuth(app);
+     const db = getFirestore(app);
      onAuthStateChanged(auth, (user) => {
   const seccion = document.getElementById("usuarios-cinevotv");
 
