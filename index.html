@@ -301,7 +301,36 @@ card.appendChild(favoritoBtn);
     const card = document.createElement("div");
     card.className = "card";
     card.textContent = title;
-    seriesCatalog.insertBefore(card, document.currentScript);
+   const favoritoBtn = document.createElement("button");
+favoritoBtn.textContent = "❤️ Guardar";
+favoritoBtn.type = "button";
+
+favoritoBtn.onclick = (event) => {
+  event.stopPropagation();
+
+  const favoritos = JSON.parse(
+    localStorage.getItem("cinevoFavoritos") || "[]"
+  );
+
+  if (!favoritos.includes(title)) {
+    favoritos.push(title);
+    localStorage.setItem(
+      "cinevoFavoritos",
+      JSON.stringify(favoritos)
+    );
+  }
+
+  const lista = document.getElementById("favoritos");
+
+  if (lista) {
+    lista.textContent = favoritos.join(" ❤️ ");
+  }
+
+  favoritoBtn.textContent = "❤️ Guardado";
+};
+
+card.appendChild(favoritoBtn);
+seriesCatalog.insertBefore(card, document.currentScript);
   });
 </script>
   </div>
