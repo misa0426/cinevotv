@@ -189,7 +189,22 @@
   <input type="password" placeholder="Contraseña"
     style="width:100%; padding:12px; margin:10px 0;">
 
-  <button type="button" style="padding:12px; background:#e50914; color:white; border:none;">
+  <button type="button"
+  onclick="
+    const panel = document.getElementById('registerPanel');
+    const correo = panel.querySelector('input[type=email]').value.trim();
+    const clave = panel.querySelector('input[type=password]').value;
+
+    if (!correo || !clave) {
+      alert('Completa el correo y la contraseña');
+      return;
+    }
+
+    document.getElementById('registroEmail').value = correo;
+    document.getElementById('registroPassword').value = clave;
+    document.getElementById('btnRegistro').click();
+  "
+  style="padding:12px; background:#e50914; color:white; border:none;">
     Registrarse
   </button>
 
