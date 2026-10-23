@@ -327,9 +327,16 @@ card.appendChild(favoritoBtn);
 favoritoBtn.textContent = "❤️ Guardar";
 favoritoBtn.type = "button";
 
-favoritoBtn.onclick = (event) => {
+favoritoBtn.onclick = async (event) => {
   event.stopPropagation();
 
+  if (typeof window.guardarFavoritoFirebase !== "function") {
+    alert("La conexión con Firebase no está disponible.");
+    return;
+  }
+
+  const guardado = await window.guardarFavoritoFirebase(title);
+  if (!guardado) return;
   const favoritos = JSON.parse(
     localStorage.getItem("cinevoFavoritos") || "[]"
   );
