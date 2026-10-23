@@ -539,9 +539,9 @@ document.getElementById("moviePlayer").load();
     };
   } else {
     estado.innerHTML = "<p>No has iniciado sesión.</p>";
-  }
+    document.getElementById("favoritos").innerHTML = "";
+}
 });
-     document.getElementById("btnRegistro").addEventListener("click", async () => {
   const email = document.getElementById("registroEmail").value.trim();
   const password = document.getElementById("registroPassword").value;
 
