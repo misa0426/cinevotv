@@ -1,0 +1,7 @@
+tests/.generated/
+.local/
+android-tv/.gradle/
+android-tv/local.properties
+android-tv/**/build/
+*.jks
+*.keystore

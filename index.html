@@ -3,615 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CinevoTV</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b0b0f;
-      color: white;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 6%;
-      background: #111118;
-    }
-
-    .logo {
-      font-size: 30px;
-      font-weight: bold;
-      color: #e50914;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-    }
-
-    .hero {
-      min-height: 420px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 60px 6%;
-      background: linear-gradient(135deg, #1b1b2b, #08080c);
-    }
-
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      color: #c9c9d0;
-      font-size: 20px;
-      max-width: 600px;
-      margin-bottom: 25px;
-    }
-
-    .search {
-      width: 100%;
-      max-width: 500px;
-      padding: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    section {
-      padding: 35px 6%;
-    }
-
-    section h2 {
-      margin-bottom: 20px;
-    }
-
-    .catalog {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      min-height: 240px;
-      border-radius: 12px;
-      background: #1b1b24;
-      padding: 20px;
-      display: flex;
-      align-items: flex-end;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #888;
-    }
-  </style>
-<style>
-/* Efecto profesional CinevoTV */
-.movie-card,
-.series-card,
-.card {
-  transition: transform 0.3s ease,
-              box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.movie-card:hover,
-.series-card:hover,
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(229, 9, 20, 0.4);
-}
-</style>
-   
+  <meta name="theme-color" content="#09090F">
+  <title>VixunoTV · Historias para ti</title>
+  <meta name="description" content="VixunoTV: descubre cine y animación con derechos documentados, busca títulos y organiza tu lista personal. Consulta la disponibilidad de cada película.">
+  <link rel="canonical" href="https://misa0426.github.io/cinevotv/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VixunoTV">
+  <meta property="og:title" content="VixunoTV · Historias para ti">
+  <meta property="og:description" content="Cine y animación con derechos documentados. Consulta la disponibilidad de cada título.">
+  <meta property="og:url" content="https://misa0426.github.io/cinevotv/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"VixunoTV","alternateName":["Vixuno","Vixuno TV"],"url":"https://misa0426.github.io/cinevotv/"}</script>
+  <link rel="stylesheet" href="./styles.css">
+<script type="module" src="./policies.mjs"></script><script type="module" src="./i18n.mjs"></script>
 </head>
 <body>
-
-<header>
-  <div class="logo">CinevoTV</div>
-<div class="auth-buttons" style="display:flex; gap:10px;">
-  <button type="button" onclick="document.getElementById('loginPanel').style.display='block'" style="background:#333; color:white; border:1px solid #777; padding:10px 15px; border-radius:6px; cursor:pointer;">
-    Iniciar sesión
-  </button>
-
-  <button type="button" onclick="document.getElementById('registerPanel').style.display='block'" style="background:#e50914; color:white; border:none; padding:10px 15px; border-radius:6px; cursor:pointer;">
-    Registrarse
-  </button>
-</div>
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#peliculas">Películas</a>
-    <a href="#series">Series</a>
+<!-- Fuente editorial del catálogo abierto. Sin URL de vídeo hasta verificar un archivo oficial reproducible. -->
+<script type="application/json" id="openFilmsCatalog">
+[
+  {"id":"open-big-buck-bunny-2008","favoriteKey":"content-open-big-buck-bunny-2008","type":"movie","title":"Big Buck Bunny","year":2008,"category":"Animación","categoryLabels":{"es":"Animación","en":"Animation"},"description":"Un conejo de gran corazón se enfrenta a tres traviesos roedores y prepara una ingeniosa revancha. Cortometraje de animación dirigido por Sacha Goedegebure.","descriptionEn":"A gentle giant rabbit faces three mischievous rodents and devises a clever revenge. An animated short directed by Sacha Goedegebure.","poster":"/assets/posters/big-buck-bunny.jpg","access":"free","effectiveAccess":"free","playbackPending":true,"video":null,"source":"https://peach.blender.org/","rightsEvidence":"https://peach.blender.org/about/","license":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","posterLicense":"CC BY 3.0","posterLicenseUrl":"https://creativecommons.org/licenses/by/3.0/","posterSource":"https://peach.blender.org/media-gallery/","attribution":"© 2008 Blender Foundation / www.bigbuckbunny.org · Blender Foundation | www.blender.org","creditsUrl":"https://peach.blender.org/the-team/"},
+  {"id":"open-sprite-fright-2021","favoriteKey":"content-open-sprite-fright-2021","type":"movie","title":"Sprite Fright","year":2021,"category":"Comedia de terror","categoryLabels":{"es":"Comedia de terror","en":"Horror comedy"},"description":"Un grupo de adolescentes se adentra en un bosque británico y descubre criaturas con aspecto de setas cuya hospitalidad tiene un límite. Comedia de terror dirigida por Matthew Luhn. Contiene violencia y escenas de terror.","descriptionEn":"Teenagers venture into a British forest and encounter mushroom creatures whose hospitality has its limits. A horror comedy directed by Matthew Luhn. Contains violence and frightening scenes.","poster":"/assets/posters/sprite-fright.jpg","access":"free","effectiveAccess":"free","playbackPending":true,"video":null,"source":"https://studio.blender.org/films/sprite-fright/","rightsEvidence":"https://studio.blender.org/projects/sprite-fright/pages/about/","license":"CC BY 1.0","licenseUrl":"https://creativecommons.org/licenses/by/1.0/","posterLicense":"CC BY 4.0","posterLicenseUrl":"https://creativecommons.org/licenses/by/4.0/","posterSource":"https://studio.blender.org/projects/api/assets/5448/?site_context=featured_artwork","attribution":"(CC) Blender Foundation | studio.blender.org","creditsUrl":"https://studio.blender.org/films/sprite-fright/pages/credits/"}
+]
+</script>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <a href="#inicio" class="logo" aria-label="VixunoTV, inicio"><img class="brand-mark" src="/brand-mark.svg" alt="" width="36" height="36"><span class="brand-word">Vixuno<span>TV</span></span></a>
+  <label class="language-picker"><span>Idioma</span><select data-language-selector aria-label="Idioma de la interfaz"><option value="en">English</option><option value="es">Español</option></select></label>
+  <nav aria-label="Navegación principal">
+    <a href="#inicio">Inicio</a><a href="#peliculas">Películas</a><a href="#series">Series</a><a href="#miLista">Mi Lista</a><a href="#suscripciones">Planes</a><a id="adminLink" href="/admin" hidden>Administración ↗</a>
   </nav>
+  <div class="auth-buttons"><button type="button" data-open="loginPanel" class="button-quiet">Entrar</button><button type="button" data-open="registerPanel" class="button-primary">Crear cuenta</button></div>
+  <a id="accountLink" href="#usuarios-cinevotv" class="account-link" hidden><span id="headerAvatar" class="avatar small">C</span><span>Mi perfil</span></a>
 </header>
-<!-- FORMULARIO DE INICIO DE SESIÓN -->
-<div id="loginPanel" style="display:none; background:#222; padding:25px; margin:20px auto; max-width:400px; border-radius:10px;">
-  <h2>Iniciar sesión</h2>
-
- <input
-  type="email"
-  id="loginEmailSuperior"
-  placeholder="Correo electrónico"
-  style="width:100%; padding:12px; margin:10px 0;"
->
-
-<input
-  type="password"
-  id="loginPasswordSuperior"
-  placeholder="Contraseña"
-  style="width:100%; padding:12px; margin:10px 0;"
->
-
-<button
-  type="button"
-  onclick="
-    document.getElementById('loginEmail').value =
-      document.getElementById('loginEmailSuperior').value;
-
-    document.getElementById('loginPassword').value =
-      document.getElementById('loginPasswordSuperior').value;
-
-    document.getElementById('btnLogin').click();
-  "
-  style="padding:12px; background:#e50914; color:white; border:none; cursor:pointer;"
->
-  Entrar
-</button>
-
-  <button type="button" onclick="document.getElementById('loginPanel').style.display='none'">
-    Cerrar
-  </button>
-</div>
-
-<!-- FORMULARIO DE REGISTRO -->
-<div id="registerPanel" style="display:none; background:#222; padding:25px; margin:20px auto; max-width:400px; border-radius:10px;">
-  <h2>Crear cuenta</h2>
-
-  <input type="text" placeholder="Nombre"
-    style="width:100%; padding:12px; margin:10px 0;">
-
-  <input type="email" placeholder="Correo electrónico"
-    style="width:100%; padding:12px; margin:10px 0;">
-
-  <input type="password" placeholder="Contraseña"
-    style="width:100%; padding:12px; margin:10px 0;">
-
-  <button type="button"
-  onclick="
-    const panel = document.getElementById('registerPanel');
-    const correo = panel.querySelector('input[type=email]').value.trim();
-    const clave = panel.querySelector('input[type=password]').value;
-
-    if (!correo || !clave) {
-      alert('Completa el correo y la contraseña');
-      return;
-    }
-
-    document.getElementById('registroEmail').value = correo;
-    document.getElementById('registroPassword').value = clave;
-    document.getElementById('btnRegistro').click();
-  "
-  style="padding:12px; background:#e50914; color:white; border:none;">
-    Registrarse
-  </button>
-
-  <button type="button" onclick="document.getElementById('registerPanel').style.display='none'">
-    Cerrar
-  </button>
-</div>
-<div class="hero">
-  <h1>Bienvenido a CinevoTV</h1>
-  <p>Descubre películas y series desde una plataforma sencilla, moderna y rápida.</p>
-
-  <input
-    class="search"
-    type="search"
-    placeholder="Buscar películas o series..."
-  >
-</div>
-<div style="display:flex; gap:10px; margin:20px 0;">
-  <button onclick="document.getElementById('peliculas').style.display='block'; document.getElementById('series').style.display='block';">
-    Todo
-  </button>
-
-  <button onclick="document.getElementById('peliculas').style.display='block'; document.getElementById('series').style.display='none';">
-    Movies
-  </button>
-
-  <button onclick="document.getElementById('peliculas').style.display='none'; document.getElementById('series').style.display='block';">
-    Series
-  </button>
-</div>
-<section id="peliculas">
-  <h2>Películas</h2>
-
-  <div class="catalog">
-   <script>
-  const movies = [
-    "Movie 1",
-    "Movie 2",
-    "Movie 3",
-    "Movie 4"
-  ];
-
-  const movieCatalog = document.currentScript.parentElement;
-
-  movies.forEach(title => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.textContent = title;
-    if (title === "Movie 1") {
-  card.style.backgroundImage =
-    'url("https://placehold.co/600x900/1b1b2b/ffffff?text=Movie+1")';
-  card.style.backgroundSize = "cover";
-  card.style.backgroundPosition = "center";
-  card.style.color = "white";
-  card.style.textShadow = "0 2px 6px black";
-}
-   // BOTÓN DE FAVORITOS CINEVOTV
-const favoritoBtn = document.createElement("button");
-favoritoBtn.textContent = "❤️ Guardar";
-favoritoBtn.type = "button";
-
-favoritoBtn.onclick = async (event) => {
-  event.stopPropagation();
-
-  if (typeof window.guardarFavoritoFirebase !== "function") {
-    alert("La conexión con Firebase todavía no está disponible.");
-    return;
-  }
-
-  const guardado = await window.guardarFavoritoFirebase(title);
-  if (!guardado) return;
-  const favoritos = JSON.parse(
-    localStorage.getItem("cinevoFavoritos") || "[]"
-  );
-
-  if (!favoritos.includes(title)) {
-    favoritos.push(title);
-    localStorage.setItem(
-      "cinevoFavoritos",
-      JSON.stringify(favoritos)
-    );
-  }
-
-  const lista = document.getElementById("favoritos");
-
-  if (lista) {
-    lista.textContent = favoritos.join(" ❤️ ");
-  }
-
-  favoritoBtn.textContent = "❤️ Guardado";
-};
-
-card.appendChild(favoritoBtn);
-// FIN BOTÓN DE FAVORITOS
-  movieCatalog.insertBefore(card, document.currentScript);
-  });
-</script>
-  </div>
-</section>
-
-<section id="series">
-  <h2>Series</h2>
-
-  <div class="catalog">
-  <script>
-  const series = [
-    "Series 1",
-    "Series 2",
-    "Series 3",
-    "Series 4"
-  ];
-
-  const seriesCatalog = document.currentScript.parentElement;
-
-  series.forEach(title => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.textContent = title;
-   const favoritoBtn = document.createElement("button");
-favoritoBtn.textContent = "❤️ Guardar";
-favoritoBtn.type = "button";
-
-favoritoBtn.onclick = async (event) => {
-  event.stopPropagation();
-
-  if (typeof window.guardarFavoritoFirebase !== "function") {
-    alert("La conexión con Firebase no está disponible.");
-    return;
-  }
-
-  const guardado = await window.guardarFavoritoFirebase(title);
-  if (!guardado) return;
-  const favoritos = JSON.parse(
-    localStorage.getItem("cinevoFavoritos") || "[]"
-  );
-
-  if (!favoritos.includes(title)) {
-    favoritos.push(title);
-    localStorage.setItem(
-      "cinevoFavoritos",
-      JSON.stringify(favoritos)
-    );
-  }
-
-  const lista = document.getElementById("favoritos");
-
-  if (lista) {
-    lista.textContent = favoritos.join(" ❤️ ");
-  }
-
-  favoritoBtn.textContent = "❤️ Guardado";
-};
-
-card.appendChild(favoritoBtn);
-seriesCatalog.insertBefore(card, document.currentScript);
-  });
-</script>
-  </div>
-</section>
-
-<footer>
-  CinevoTV — Prototipo
-</footer>
-<div id="details" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:9999; align-items:center; justify-content:center;">
-  <div style="background:#181818; padding:30px; border-radius:14px; width:min(700px,90%);">
-    <button onclick="closeDetails()" style="float:right; font-size:22px; background:none; color:white; border:0; cursor:pointer;">✕</button>
-
-    <h2 id="detailsTitle">Movie</h2>
-<p id="detailsType">Tipo: Movie</p>
-<p id="detailsDescription">Descripción del título.</p>
-
-    <button onclick="playMovie()" style="background:#e50914; color:white; border:0; padding:12px 24px; border-radius:6px; font-size:18px; cursor:pointer;">
-      ▶ Play
-    </button>
-
-    <div id="playerBox" style="display:none; margin-top:20px;">
-      <video id="moviePlayer" controls style="width:100%; border-radius:10px;">
-       <source id="videoSource" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-</div>
-
-<script>
-  const cards = document.querySelectorAll('.card');
-
-  cards.forEach(card => {
-    card.style.cursor = 'pointer';
-
-    card.addEventListener('click', () => {
-  const isSeries = card.closest('section')?.id === 'series';
-const movieTitle = card.textContent.trim();
-
-const movieVideos = {
-  "Movie 1": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Movie 2": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Movie 3": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Movie 4": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-};
-const seriesVideos = {
-  "Series 1": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Series 2": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Series 3": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Series 4": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-};
-const videoSource = document.getElementById("videoSource");
-videoSource.src = (isSeries ? seriesVideos[movieTitle] : movieVideos[movieTitle]) || "";
-document.getElementById("moviePlayer").load();
-  document.getElementById('detailsTitle').textContent = card.textContent;
-
-  document.getElementById('detailsType').textContent =
-    isSeries ? 'Tipo: Series' : 'Tipo: Movie';
-
-  document.getElementById('detailsDescription').textContent =
-    isSeries ? 'Descripción de la serie.' : 'Descripción de la película.';
-
-  document.getElementById('details').style.display = 'flex';
-  document.getElementById('playerBox').style.display = 'none';
-});
-  });
-
-  function closeDetails() {
-    document.getElementById('details').style.display = 'none';
-    document.getElementById('moviePlayer').pause();
-  }
-
-  function playMovie() {
-  const player = document.getElementById("moviePlayer");
-  const playerBox = document.getElementById("playerBox");
-
-  playerBox.style.display = "block";
-
-  player.play().catch(error => {
-    console.log("No se pudo reproducir el video:", error);
-  });
-}
-</script>
-<script>
-  const searchInput = document.querySelector('.search, input[type="search"]');
-  const searchCards = document.querySelectorAll('.card');
-
-  if (searchInput) {
-    searchInput.addEventListener('input', () => {
-      const text = searchInput.value.toLowerCase().trim();
-
-      searchCards.forEach(card => {
-        const title = card.textContent.toLowerCase();
-        card.style.display = title.includes(text) ? '' : 'none';
-      });
-    });
-  }
-</script>
-   <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-     import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
-     import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDQascHh2rzhDDpWdKRX-xthKtA6oz0p6U",
-    authDomain: "cinevotv-a3378.firebaseapp.com",
-    projectId: "cinevotv-a3378",
-    storageBucket: "cinevotv-a3378.firebasestorage.app",
-    messagingSenderId: "495427023735",
-    appId: "1:495427023735:web:89eb3588d847ba88862772"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-     const auth = getAuth(app);
-     const db = getFirestore(app);
-
-     window.guardarFavoritoFirebase = async (titulo) => {
-  const usuario = auth.currentUser;
-
-  if (!usuario) {
-    alert("Inicia sesión para guardar tus favoritos.");
-    return false;
-  }
-
-  try {
-    const referencia = doc(db, "usuarios", usuario.uid);
-    const documento = await getDoc(referencia);
-
-    const favoritos = documento.exists()
-      ? (documento.data().favoritos || [])
-      : [];
-
-    if (!favoritos.includes(titulo)) {
-      favoritos.push(titulo);
-    }
-
-    await setDoc(referencia, { favoritos }, { merge: true });
-
-    return true;
-  } catch (error) {
-    console.error("Error al guardar favorito:", error);
-    alert("No se pudo guardar el favorito.");
-    return false;
-  }
-};
-    onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    try {
-      const referencia = doc(db, "usuarios", user.uid);
-      const documento = await getDoc(referencia);
-
-      const favoritos = documento.exists()
-        ? (documento.data().favoritos || [])
-        : [];
-
-      const lista = document.getElementById("favoritos");
-
-      if (lista) {
-        lista.textContent = favoritos.join(" 💗 ");
-      }
-    } catch (error) {
-      console.error("Error al cargar favoritos:", error);
-    }
-  }
-  const seccion = document.getElementById("usuarios-cinevotv");
-
-  if (!seccion) return;
-
-  let estado = document.getElementById("estadoSesion");
-
-  if (!estado) {
-    estado = document.createElement("div");
-    estado.id = "estadoSesion";
-    seccion.prepend(estado);
-  }
-
-  if (user) {
-    estado.innerHTML = `
-      <p>Bienvenido a CinevoTV, ${user.email}</p>
-      <button id="cerrarSesion" type="button">Cerrar sesión</button>
-    `;
-
-    document.getElementById("cerrarSesion").onclick = async () => {
-      try {
-        await signOut(auth);
-      } catch (error) {
-        alert("Error al cerrar sesión: " + error.message);
-      }
-    };
-  } else {
-    estado.innerHTML = "<p>No has iniciado sesión.</p>";
-    document.getElementById("favoritos").innerHTML = "";
-}
-});
-     document.getElementById("btnRegistro").addEventListener("click", async () => {
-  const email = document.getElementById("registroEmail").value.trim();
-  const password = document.getElementById("registroPassword").value;
-
-  try {
-    await createUserWithEmailAndPassword(auth, email, password);
-    alert("¡Cuenta creada correctamente en CinevoTV!");
-  } catch (error) {
-    alert("Error al registrarse: " + error.message);
-  }
-});
-     document.getElementById("btnLogin").addEventListener("click", async () => {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value;
-
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    alert("¡Has iniciado sesión correctamente en CinevoTV!");
-  } catch (error) {
-    alert("Error al iniciar sesión: " + error.message);
-  }
-});
-</script>
-  <!-- REGISTRO E INICIO DE SESIÓN CINEVOTV -->
-<section id="usuarios-cinevotv">
-  <h2>Bienvenido a CinevoTV</h2>
-
-  <h3>Crear cuenta</h3>
-  <input type="email" id="registroEmail"
-         placeholder="Correo electrónico">
-  <input type="password" id="registroPassword"
-         placeholder="Contraseña">
-  <button id="btnRegistro">Registrarse</button>
-
-  <h3>Iniciar sesión</h3>
-  <input type="email" id="loginEmail"
-         placeholder="Correo electrónico">
-  <input type="password" id="loginPassword"
-         placeholder="Contraseña">
-  <button id="btnLogin">Iniciar sesión</button>
-</section>
-
- <!-- MI LISTA CINEVOTV -->
-<section id="miLista" style="padding:20px; color:white;">
-  <h2>❤️ Mi lista</h2>
-  <p>Guarda aquí tus películas y series favoritas.</p>
-  <div id="favoritos"></div>
-</section>
-<!-- FIN MI LISTA -->
+<p id="localeContext" class="locale-context" aria-live="polite"></p>
+<p id="conexionEstado" class="connection-status" role="status" aria-live="polite">Conectando…</p>
+<form id="loginPanel" class="auth-panel" style="display:none" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <button type="button" data-close="loginPanel" class="close-button" aria-label="Cerrar inicio de sesión">×</button>
+  <p class="eyebrow">TU ESPACIO EN VIXUNO</p><h2 id="loginTitle">Qué bueno verte.</h2><p class="muted">Entra para encontrar tus historias guardadas.</p>
+  <label for="loginEmail">Correo electrónico</label><input id="loginEmail" name="email" type="email" autocomplete="username" required placeholder="tu@correo.com">
+  <label for="loginPassword">Contraseña</label><div class="password-field"><input id="loginPassword" name="password" type="password" autocomplete="current-password" required><button type="button" data-password="loginPassword" aria-label="Mostrar contraseña" aria-pressed="false">Mostrar</button></div>
+  <button type="submit" class="button-primary full-width" disabled>Iniciar sesión</button>
+  <p class="auth-message" role="status" aria-live="polite"></p><p class="muted">¿Primera vez aquí? <button type="button" data-open="registerPanel" class="text-button">Crea tu cuenta</button></p>
+</form>
+<form id="registerPanel" class="auth-panel" style="display:none" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+  <button type="button" data-close="registerPanel" class="close-button" aria-label="Cerrar registro">×</button>
+  <p class="eyebrow">EMPIEZA TU HISTORIA</p><h2 id="registerTitle">Hazte un lugar.</h2><p class="muted">Tu cuenta, tus favoritos, tu próxima historia.</p>
+  <label for="registroNombre">Nombre</label><input id="registroNombre" name="name" type="text" autocomplete="name" maxlength="100" placeholder="¿Cómo te llamas?">
+  <label for="registroEmail">Correo electrónico</label><input id="registroEmail" name="email" type="email" autocomplete="username" required placeholder="tu@correo.com">
+  <label for="registroPassword">Contraseña <span class="muted">· mínimo 6 caracteres</span></label><div class="password-field"><input id="registroPassword" name="password" type="password" autocomplete="new-password" required minlength="6"><button type="button" data-password="registroPassword" aria-label="Mostrar contraseña" aria-pressed="false">Mostrar</button></div>
+  <button type="submit" class="button-primary full-width" disabled>Crear cuenta</button><p class="auth-message" role="status" aria-live="polite"></p>
+  <p class="muted">¿Ya tienes cuenta? <button type="button" data-open="loginPanel" class="text-button">Inicia sesión</button></p>
+</form>
+<main id="contenido">
+  <section id="inicio" class="hero">
+    <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-disc">V</div><span class="art-caption">VIXUNO ORIGINAL DESIGN / 01</span></div>
+    <div class="hero-content"><p class="eyebrow"><span class="live-dot"></span> UN MUNDO DE HISTORIAS</p><h1>Que empiece<br>tu próxima<br><em>historia.</em></h1><p>Encuentra algo que te acompañe.<br>Películas, series y un espacio que es solo tuyo.</p><div class="hero-actions"><button type="button" id="heroPlay" class="button-light">▶ Ver película destacada</button><a href="#peliculas" class="button-outline">Explorar catálogo ↓</a></div><p class="demo-note">BIG BUCK BUNNY · BLENDER FOUNDATION · CC BY 3.0</p></div>
+    <div class="hero-bottom"><span>DALE PLAY A TU MOMENTO</span><span>PELÍCULAS / SERIES / A TU RITMO</span></div>
+  </section>
+  <section class="catalog-toolbar" aria-label="Buscar y filtrar catálogo"><div><p class="eyebrow">ENCUENTRA TU PRÓXIMO PLAY</p><h2>Explora Vixuno.</h2></div><div class="catalog-controls"><label class="category-filter"><span class="sr-only">Categoría del catálogo</span><select id="categoryFilter" aria-label="Categoría del catálogo"><option value="all">Todas las categorías</option><option value="Demostración">Demostración</option></select></label><div class="filters" aria-label="Tipo de contenido"><button type="button" data-filter="all">Todo</button><button type="button" data-filter="movie">Películas</button><button type="button" data-filter="series">Series</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input class="search" type="search" aria-label="Buscar películas o series" placeholder="Buscar un título…"></label></div></section>
+  <p id="searchStatus" class="search-status" role="status" aria-live="polite"></p>
+  <section id="peliculas" class="catalog-section"><div class="section-heading"><h2>Películas</h2><span>01 — ELIGE TU MOMENTO</span></div><div class="catalog"></div></section>
+  <section id="series" class="catalog-section"><div class="section-heading"><h2>Series</h2><span>02 — UNA HISTORIA MÁS</span></div><div class="catalog"></div></section>
+  <aside id="adSlot" class="ad-placeholder" aria-label="Espacio publicitario de demostración"><span>ESPACIO PARA PUBLICIDAD</span><p>Plan Gratis · Espacio reservado. No se cargan anuncios ni rastreadores.</p></aside>
+  <section id="continueSection" class="list-section"><div class="section-heading"><h2>Continuar viendo</h2></div><div id="continueList" class="history-list">Disponible con Premium y Familiar.</div></section><section id="historySection" class="list-section"><div class="section-heading"><h2>Historial de reproducción</h2></div><div id="historyList" class="history-list">Disponible con Premium y Familiar.</div></section><section id="miLista" class="list-section"><div class="section-heading"><div><p class="eyebrow">HECHA POR TI</p><h2>Mi Lista<span id="favoriteCount" class="count">0</span></h2></div><a href="#peliculas" class="text-link">Seguir explorando ↗</a></div><div id="favoritos" class="favorite-list" aria-live="polite"></div></section>
+  <section id="suscripciones" class="plans-section"><div class="billing-choice"><div class="billing-toggle" role="group" aria-label="Modalidad de suscripción"><button type="button" data-period="month" aria-pressed="true">Mensual</button><button type="button" data-period="year" aria-pressed="false">Anual <span>2 MESES GRATIS</span></button></div><div id="annualOffer" hidden><strong>PAGA 10 MESES Y DISFRUTA 12</strong><p>Un pago anual por adelantado. Ahorra aproximadamente 16.67 % frente a 12 mensualidades.</p></div></div><div class="plans-intro"><p class="eyebrow">TU MANERA DE VER</p><h2>Elige el plan.<br>Disfruta la historia.</h2><p class="muted">Tres formas de vivir VixunoTV.<br>Cambia tu elección cuando quieras.</p><span class="simulation-label">SIMULACIÓN · SIN COBROS</span><p id="planStatus" role="status" aria-live="polite">Inicia sesión para probar un plan.</p></div><div class="plan-card"><p class="eyebrow">LO ESENCIAL</p><h3>Gratis</h3><p class="price">0 <span>CAD / mes</span></p><p>Acceso con anuncios</p><ul><li>Películas y series del catálogo</li><li>Sin Mi Lista ni favoritos</li><li>Algunos títulos hasta 480p</li><li>Experiencia con anuncios</li></ul><button type="button" data-plan="free" class="button-outline full-width">Probar Gratis</button></div><div class="plan-card premium"><span class="premium-tag">TU MOMENTO, SIN PAUSAS</span><p class="eyebrow">LA EXPERIENCIA COMPLETA</p><h3>Premium</h3><p class="price">6.99 <span>CAD / mes</span></p><p>Acceso sin anuncios</p><ul><li>Películas y series del catálogo</li><li>Tu propia lista de favoritos</li><li>Historial y Continuar viendo</li><li>Hasta 1080p si está disponible</li><li>Hasta 2 reproducciones simultáneas</li><li>Sin interrupciones publicitarias</li></ul><p class="annual-detail" data-annual-detail hidden></p><button type="button" data-plan="premium" class="button-primary full-width">Probar Premium</button></div><div class="plan-card family"><span class="premium-tag">PARA COMPARTIR</span><p class="eyebrow">TUS DISPOSITIVOS, ORGANIZADOS</p><h3>Familiar</h3><p class="price">9.99 <span>CAD / mes</span></p><p>Sin anuncios · Catálogo Premium</p><ul><li>Mi Lista, historial y Continuar viendo</li><li>Hasta 1080p cuando esté disponible</li><li>Hasta 3 dispositivos registrados</li><li>Hasta 2 reproducciones simultáneas</li></ul><p class="annual-detail" data-annual-detail hidden></p><button type="button" data-plan="family" class="button-primary full-width">Probar Familiar</button></div><div class="pricing-market"><label for="pricingCountry">Consultar precios por país</label><select id="pricingCountry"><option value="CA">Canadá · CAD</option><option value="US">Estados Unidos · USD</option><option value="MX">México · USD</option><option value="ES">España · EUR</option><option value="IE">Irlanda · EUR</option></select><p id="pricingNotice" role="status">Precios aprobados por país. Pagos exclusivamente simulados.</p></div><p class="plans-disclaimer">Las anualidades cubren 12 meses mediante un único pago simulado por adelantado. Gratis no tiene modalidad anual. No hay pagos ni renovaciones automáticas reales.</p></section>
+  <section id="usuarios-cinevotv" class="profile-section"><div class="profile-summary"><span id="profileAvatar" class="avatar">C</span><div><p class="eyebrow">TU ESPACIO</p><h2 data-i18n="off" id="profileHeading">Mi perfil</h2><p id="estadoSesion" role="status">Comprobando sesión…</p><span id="profilePlan" class="simulation-label">Sin sesión</span><p id="profileSubscription" class="subscription-current" data-i18n="off"></p></div></div><form id="profileForm" class="profile-form" style="display:none"><label for="profileName">Nombre para mostrar</label><input id="profileName" type="text" maxlength="100" required autocomplete="nickname"><button type="submit" class="button-outline">Guardar nombre</button><p id="profileStatus" role="status" aria-live="polite"></p></form><div class="profile-actions"><button type="button" id="profileLogin" data-open="loginPanel" class="button-outline">Iniciar sesión</button><button id="cerrarSesion" type="button" class="button-quiet" hidden>Cerrar sesión ↗</button></div></section>
+<section id="deviceSection" class="list-section" hidden><div class="section-heading"><h2>Dispositivos de tu cuenta</h2><button type="button" id="refreshDevices" class="button-outline">Actualizar</button></div><p id="deviceLimits" class="muted"></p><div id="deviceList" class="device-list"></div><p id="deviceStatus" role="status"></p><button id="renewSimulation" type="button" class="button-outline" hidden>Comprobar renovación simulada</button></section></main>
+<footer><a href="#inicio" class="logo"><img class="brand-mark" src="/brand-mark.svg" alt="" width="36" height="36"><span class="brand-word">Vixuno<span>TV</span></span></a><p>Historias que se quedan contigo.</p><span>VERSIÓN DE PRUEBAS · SIN PAGOS REALES</span><p class="brand-disclaimer">VixunoTV es una marca provisional pendiente de comprobación legal.</p></footer>
+<div role="dialog" aria-modal="true" aria-labelledby="detailsTitle" id="details" class="details-overlay" style="display:none"><div class="details-panel"><button id="closeDetails" class="close-button" aria-label="Cerrar detalles">×</button><div class="details-heading"><p class="eyebrow">VIXUNO / DEMOSTRACIÓN</p><h2 id="detailsTitle">Movie</h2><p id="detailsType" class="muted">Tipo: Movie</p><p id="detailsDescription">Descripción del título.</p><button id="playMovie" class="button-primary">▶ Reproducir</button></div><label class="quality-control" for="qualitySelect">Calidad disponible <select id="qualitySelect" aria-label="Calidad disponible"><option value="">Automática</option></select></label><p id="qualityInfo" class="player-note">La calidad depende de los archivos reales y del plan.</p><p id="playerStatus" role="status" aria-live="polite"></p><div id="playerBox" style="display:none"><video id="moviePlayer" preload="none" controls playsinline tabindex="0"><source id="videoSource" type="video/mp4"></video></div><p class="player-note">Video de demostración existente. No es una película o episodio comercial.</p></div></div>
+<script type="module" src="./app.js"></script>
+<script type="module" src="./tv-navigation.mjs"></script>
 </body>
 </html>
