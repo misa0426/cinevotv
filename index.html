@@ -253,6 +253,7 @@
     const card = document.createElement("div");
     card.className = "card";
     card.textContent = title;
+    card.dataset.title = title;
     if (title === "Movie 1") {
   card.style.backgroundImage =
     'url("https://placehold.co/600x900/1b1b2b/ffffff?text=Movie+1")';
@@ -323,6 +324,7 @@ card.appendChild(favoritoBtn);
     const card = document.createElement("div");
     card.className = "card";
     card.textContent = title;
+    card.dataset.title = title;
    const favoritoBtn = document.createElement("button");
 favoritoBtn.textContent = "❤️ Guardar";
 favoritoBtn.type = "button";
@@ -396,8 +398,10 @@ seriesCatalog.insertBefore(card, document.currentScript);
 
     card.addEventListener('click', () => {
   const isSeries = card.closest('section')?.id === 'series';
-const movieTitle = card.textContent.trim();
+const movieTitle = card.dataset.title;
 
+// Only verified authorized demo content: MDN CC0 flower.mp4.
+// https://github.com/mdn/interactive-examples/tree/main/live-examples/media/cc0-videos
 const movieVideos = {
   "Movie 1": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   "Movie 2": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
@@ -413,7 +417,7 @@ const seriesVideos = {
 const videoSource = document.getElementById("videoSource");
 videoSource.src = (isSeries ? seriesVideos[movieTitle] : movieVideos[movieTitle]) || "";
 document.getElementById("moviePlayer").load();
-  document.getElementById('detailsTitle').textContent = card.textContent;
+  document.getElementById('detailsTitle').textContent = movieTitle;
 
   document.getElementById('detailsType').textContent =
     isSeries ? 'Tipo: Series' : 'Tipo: Movie';
@@ -451,7 +455,7 @@ document.getElementById("moviePlayer").load();
       const text = searchInput.value.toLowerCase().trim();
 
       searchCards.forEach(card => {
-        const title = card.textContent.toLowerCase();
+        const title = card.dataset.title.toLowerCase();
         card.style.display = title.includes(text) ? '' : 'none';
       });
     });
