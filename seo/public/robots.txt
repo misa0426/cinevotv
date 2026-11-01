@@ -1,0 +1,6 @@
+# Plantilla para la raíz del host público, no para localhost.
+User-agent: *
+Allow: /cinevotv/
+Disallow: /cinevotv/admin
+Disallow: /cinevotv/api/
+Sitemap: https://misa0426.github.io/cinevotv/sitemap.xml

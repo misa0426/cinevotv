@@ -1,0 +1,254 @@
+{
+  "checkedAt": "2026-11-01T18:33:37.003Z",
+  "note": "A del informe anterior significaba permiso localizado, no APROBADO para reproducción.",
+  "items": [
+    {
+      "id": "F01",
+      "title": "Elephants Dream",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://orange.blender.org/blog/creative-commons-license/"
+    },
+    {
+      "id": "F02",
+      "title": "Big Buck Bunny",
+      "status": "APROBADO",
+      "reason": "Licencia CC BY 3.0, copia oficial íntegra, reproducción completa local y créditos verificados.",
+      "rightsSource": "https://peach.blender.org/about/"
+    },
+    {
+      "id": "F03",
+      "title": "Sintel",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://durian.blender.org/sharing/"
+    },
+    {
+      "id": "F04",
+      "title": "Tears of Steel",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://mango.blender.org/sharing/"
+    },
+    {
+      "id": "F05",
+      "title": "Cosmos Laundromat: First Cycle",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/cosmos-laundromat/"
+    },
+    {
+      "id": "F06",
+      "title": "Glass Half",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/glass-half/pages/licensing/"
+    },
+    {
+      "id": "F07",
+      "title": "Agent 327: Operation Barbershop",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/agent-327/pages/about/"
+    },
+    {
+      "id": "F08",
+      "title": "HERO",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/hero/"
+    },
+    {
+      "id": "F09",
+      "title": "Spring",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/spring/pages/about/"
+    },
+    {
+      "id": "F10",
+      "title": "Coffee Run",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/coffee-run/pages/licensing/"
+    },
+    {
+      "id": "F11",
+      "title": "Sprite Fright",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/sprite-fright/pages/about/"
+    },
+    {
+      "id": "F12",
+      "title": "CHARGE",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/charge/"
+    },
+    {
+      "id": "F13",
+      "title": "WING IT!",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/wing-it/pages/licensing/"
+    },
+    {
+      "id": "F14",
+      "title": "The Daily Dweebs",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/dailydweebs/"
+    },
+    {
+      "id": "F15",
+      "title": "Project Gold: showcase",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/gold/"
+    },
+    {
+      "id": "F16",
+      "title": "SINGULARITY",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/singularity/pages/licensing/"
+    },
+    {
+      "id": "F17",
+      "title": "Making Of Sintel",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://durian.blender.org/sharing/"
+    },
+    {
+      "id": "F18",
+      "title": "Patent Absurdity",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://patentabsurdity.com/watch.html"
+    },
+    {
+      "id": "F19",
+      "title": "Valkaama",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://www.valkaama.com/index.php?id=35&l=en&page=about"
+    },
+    {
+      "id": "F20",
+      "title": "Sita Sings the Blues",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://www.sitasingstheblues.com/"
+    },
+    {
+      "id": "S01",
+      "title": "Caminandes",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://studio.blender.org/projects/caminandes-3/"
+    },
+    {
+      "id": "S02",
+      "title": "Morevna",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://morevnaproject.org/anime/episode-3-new/"
+    },
+    {
+      "id": "S03",
+      "title": "Pepper & Carrot Motion Comic",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://morevnaproject.org/pepper-carrot-animated-new/"
+    },
+    {
+      "id": "S04",
+      "title": "Ochy-Bala",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://morevnaproject.org/2022/08/09/ochy-bala-in-the-altai-language/"
+    },
+    {
+      "id": "S05",
+      "title": "Hubblecast",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://esahubble.org/copyright/"
+    },
+    {
+      "id": "S06",
+      "title": "ESOcast",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://www.eso.org/public/outreach/copyright/"
+    },
+    {
+      "id": "S07",
+      "title": "Space Sparks — ESA/Hubble",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://esahubble.org/copyright/"
+    },
+    {
+      "id": "S08",
+      "title": "Space Sparks — ESA/Webb",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://esawebb.org/copyright/"
+    },
+    {
+      "id": "S09",
+      "title": "NASA ScienceCasts",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+    },
+    {
+      "id": "S10",
+      "title": "NASA Explorers",
+      "status": "PENDIENTE",
+      "reason": "El informe previo no acredita conjuntamente derechos de todos los recursos y reproducción real completa.",
+      "rightsSource": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+    },
+    {
+      "id": "EXCLUDED-COPIAD",
+      "title": "¡Copiad, malditos!",
+      "status": "NO AUTORIZADO",
+      "reason": "La licencia BY-NC 3.0 no autoriza este servicio monetizado sin permiso adicional.",
+      "rightsSource": "https://www.rtve.es/television/documentales/copiad-malditos/directo/"
+    }
+  ],
+  "bbbEvidence": {
+    "fullPlayback": true,
+    "audioDecoded": true,
+    "videoDecoded": true,
+    "qualityHeight": 360,
+    "durationSeconds": 596.566,
+    "frames": 14684,
+    "audioSignalDetected": true,
+    "decodedAudioBytes": 29369492,
+    "wallSeconds": 597.507,
+    "maxGap": 1.0270000000000437,
+    "pause": true,
+    "seekForward": true,
+    "seekBackward": true,
+    "creditsFrames": [
+      545,
+      565,
+      580,
+      590
+    ],
+    "fullscreen": "PENDIENTE: requiere interacciÃ³n real",
+    "audibleSpeakers": "PENDIENTE: prueba automatizada con salida silenciada",
+    "checkedAt": "2026-11-01T18:32:15.016Z",
+    "sha256": "1baf06cb883b9d3a0ace0bf027fe74c968a73769b7a2e0c324aea80d42f3ca7c",
+    "creditsPreserved": true,
+    "creditsReview": "Fotogramas 545, 565 y 590 revisados visualmente; archivo oficial íntegro sin edición",
+    "license": "CC BY 3.0",
+    "licenseEvidence": "https://peach.blender.org/about/",
+    "status": "APROBADO",
+    "downloadPath": "solo .local/media; excluido de Git"
+  }
+}
