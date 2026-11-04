@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CinevoTV</title>
+  <title>VixunoTV</title>
 
   <style>
     * {
@@ -100,7 +100,7 @@
     }
   </style>
 <style>
-/* Efecto profesional CinevoTV */
+/* Efecto profesional VixunoTV */
 .movie-card,
 .series-card,
 .card {
@@ -121,7 +121,7 @@
 <body>
 
 <header>
-  <div class="logo">CinevoTV</div>
+  <div class="logo">VixunoTV</div>
 <div class="auth-buttons" style="display:flex; gap:10px;">
   <button type="button" onclick="document.getElementById('loginPanel').style.display='block'" style="background:#333; color:white; border:1px solid #777; padding:10px 15px; border-radius:6px; cursor:pointer;">
     Iniciar sesión
@@ -213,7 +213,7 @@
   </button>
 </div>
 <div class="hero">
-  <h1>Bienvenido a CinevoTV</h1>
+  <h1>Bienvenido a VixunoTV</h1>
   <p>Descubre películas y series desde una plataforma sencilla, moderna y rápida.</p>
 
   <input
@@ -253,6 +253,10 @@
     const card = document.createElement("div");
     card.className = "card";
     card.textContent = title;
+    card.dataset.title = title;
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'Ver detalles de ' + title);
     if (title === "Movie 1") {
   card.style.backgroundImage =
     'url("https://placehold.co/600x900/1b1b2b/ffffff?text=Movie+1")';
@@ -323,6 +327,10 @@ card.appendChild(favoritoBtn);
     const card = document.createElement("div");
     card.className = "card";
     card.textContent = title;
+    card.dataset.title = title;
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'Ver detalles de ' + title);
    const favoritoBtn = document.createElement("button");
 favoritoBtn.textContent = "❤️ Guardar";
 favoritoBtn.type = "button";
@@ -366,9 +374,9 @@ seriesCatalog.insertBefore(card, document.currentScript);
 </section>
 
 <footer>
-  CinevoTV — Prototipo
+  VixunoTV — Prototipo
 </footer>
-<div id="details" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:9999; align-items:center; justify-content:center;">
+<div id="details" role="dialog" aria-modal="true" aria-labelledby="detailsTitle" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:9999; align-items:center; justify-content:center;">
   <div style="background:#181818; padding:30px; border-radius:14px; width:min(700px,90%);">
     <button onclick="closeDetails()" style="float:right; font-size:22px; background:none; color:white; border:0; cursor:pointer;">✕</button>
 
@@ -376,27 +384,39 @@ seriesCatalog.insertBefore(card, document.currentScript);
 <p id="detailsType">Tipo: Movie</p>
 <p id="detailsDescription">Descripción del título.</p>
 
-    <button onclick="playMovie()" style="background:#e50914; color:white; border:0; padding:12px 24px; border-radius:6px; font-size:18px; cursor:pointer;">
+    <button id="playButton" type="button" onclick="playMovie()" style="background:#e50914; color:white; border:0; padding:12px 24px; border-radius:6px; font-size:18px; cursor:pointer;">
       ▶ Play
     </button>
 
+    <p id="playbackStatus" role="status" aria-live="polite"></p>
     <div id="playerBox" style="display:none; margin-top:20px;">
-      <video id="moviePlayer" controls style="width:100%; border-radius:10px;">
-       <source id="videoSource" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+      <video id="moviePlayer" controls playsinline preload="none" style="width:100%; border-radius:10px;">
+       <source id="videoSource" type="video/mp4">
       </video>
     </div>
   </div>
 </div>
 
 <script>
+  let selectedCard = null;
+  let playbackRequest = 0;
   const cards = document.querySelectorAll('.card');
 
   cards.forEach(card => {
     card.style.cursor = 'pointer';
 
+    card.addEventListener('keydown', event => {
+      if (event.target === card && (event.key === 'Enter' || event.key === ' ')) {
+        event.preventDefault();
+        card.click();
+      }
+    });
     card.addEventListener('click', () => {
+  selectedCard = card;
+  playbackRequest++;
+  document.getElementById('moviePlayer').pause();
   const isSeries = card.closest('section')?.id === 'series';
-const movieTitle = card.textContent.trim();
+const movieTitle = card.dataset.title;
 
 const movieVideos = {
   "Movie 1": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
@@ -413,7 +433,12 @@ const seriesVideos = {
 const videoSource = document.getElementById("videoSource");
 videoSource.src = (isSeries ? seriesVideos[movieTitle] : movieVideos[movieTitle]) || "";
 document.getElementById("moviePlayer").load();
-  document.getElementById('detailsTitle').textContent = card.textContent;
+const available = Boolean(videoSource.getAttribute('src'));
+document.getElementById('playButton').disabled = !available;
+document.getElementById('playbackStatus').textContent = available
+  ? 'Demostración CC0: video de flores. No es una película ni un episodio comercial.'
+  : 'Este título todavía no tiene una fuente autorizada disponible.';
+  document.getElementById('detailsTitle').textContent = movieTitle;
 
   document.getElementById('detailsType').textContent =
     isSeries ? 'Tipo: Series' : 'Tipo: Movie';
@@ -423,24 +448,63 @@ document.getElementById("moviePlayer").load();
 
   document.getElementById('details').style.display = 'flex';
   document.getElementById('playerBox').style.display = 'none';
+  document.getElementById('playButton').focus();
 });
   });
 
   function closeDetails() {
+    playbackRequest++;
     document.getElementById('details').style.display = 'none';
-    document.getElementById('moviePlayer').pause();
+    const player = document.getElementById('moviePlayer');
+    player.pause();
+    document.getElementById('videoSource').removeAttribute('src');
+    player.load();
+    document.getElementById('playerBox').style.display = 'none';
+    selectedCard?.focus();
   }
 
-  function playMovie() {
-  const player = document.getElementById("moviePlayer");
-  const playerBox = document.getElementById("playerBox");
-
-  playerBox.style.display = "block";
-
-  player.play().catch(error => {
-    console.log("No se pudo reproducir el video:", error);
+  async function playMovie() {
+    const player = document.getElementById('moviePlayer');
+    const status = document.getElementById('playbackStatus');
+    if (!document.getElementById('videoSource').getAttribute('src')) {
+      status.textContent = 'Este título todavía no tiene una fuente autorizada disponible.';
+      return;
+    }
+    const request = ++playbackRequest;
+    document.getElementById('playerBox').style.display = 'block';
+    status.textContent = 'Cargando demostración CC0…';
+    try {
+      await player.play();
+      if (request === playbackRequest) status.textContent = 'Reproduciendo demostración CC0.';
+    } catch (error) {
+      if (request !== playbackRequest) return;
+      status.textContent = error.name === 'NotAllowedError'
+        ? 'Pulsa el control de reproducción del video para comenzar.'
+        : 'No se pudo reproducir el video. Comprueba tu conexión y vuelve a pulsar Play.';
+    }
+  }
+  document.getElementById('moviePlayer').addEventListener('error', showPlaybackError);
+  document.getElementById('videoSource').addEventListener('error', showPlaybackError);
+  function showPlaybackError() {
+    if (!document.getElementById('videoSource').getAttribute('src')) return;
+    document.getElementById('playbackStatus').textContent =
+      'El video no está disponible o su formato no es compatible. Vuelve a intentarlo.';
+  }
+  document.addEventListener('keydown', event => {
+    const dialog = document.getElementById('details');
+    if (dialog.style.display !== 'flex') return;
+    if (event.key === 'Escape') closeDetails();
+    if (event.key === 'Tab') {
+      const controls = [...dialog.querySelectorAll('button:not(:disabled), video[controls]')]
+        .filter(element => element.getClientRects().length);
+      const first = controls[0], last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus();
+      }
+    }
   });
-}
 </script>
 <script>
   const searchInput = document.querySelector('.search, input[type="search"]');
@@ -451,7 +515,7 @@ document.getElementById("moviePlayer").load();
       const text = searchInput.value.toLowerCase().trim();
 
       searchCards.forEach(card => {
-        const title = card.textContent.toLowerCase();
+        const title = card.dataset.title.toLowerCase();
         card.style.display = title.includes(text) ? '' : 'none';
       });
     });
@@ -589,7 +653,7 @@ document.getElementById("moviePlayer").load();
 </script>
   <!-- REGISTRO E INICIO DE SESIÓN CINEVOTV -->
 <section id="usuarios-cinevotv">
-  <h2>Bienvenido a CinevoTV</h2>
+  <h2>Bienvenido a VixunoTV</h2>
 
   <h3>Crear cuenta</h3>
   <input type="email" id="registroEmail"
@@ -615,3 +679,4 @@ document.getElementById("moviePlayer").load();
 <!-- FIN MI LISTA -->
 </body>
 </html>
+
